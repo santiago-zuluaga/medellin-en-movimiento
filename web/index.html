@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4f0e6">
+    <meta name="description" content="Exploración descriptiva de registros oficiales de siniestralidad y mortalidad vial de Medellín.">
+    <title>Medellín en movimiento — datos, recorridos y límites</title>
+    <link rel="stylesheet" href="/styles.css?v=4">
+  </head>
+  <body>
+    <header class="masthead">
+      <a class="brand" href="#inicio" aria-label="Medellín en movimiento, inicio"><span class="brand-mark" aria-hidden="true">M</span><span>Medellín<br>en movimiento</span></a>
+      <nav aria-label="Navegación principal">
+        <button class="nav-button active" data-view="story">Story</button>
+        <button class="nav-button" data-view="explore">Explore</button>
+        <a href="#metodo">Método y fuentes</a>
+      </nav>
+      <span class="edition">Una lectura de registros<br>oficiales de movilidad</span>
+    </header>
+    <main id="inicio">
+      <section class="hero">
+        <p class="eyebrow">Medellín · seguridad vial · datos abiertos</p>
+        <h1>La ciudad se mueve.<br><em>Los registros también.</em></h1>
+        <p class="dek">Una exploración de dónde, cuándo y cómo se registran los siniestros viales. Cada cifra describe registros administrativos: no mide por sí sola el riesgo de circular ni explica sus causas.</p>
+        <div class="hero-meta"><span>2019—2025</span><span>Secretaría de Movilidad · Observatorio</span><span>Actualización observada: 2026</span></div>
+      </section>
+
+      <section id="story-view" class="view-panel" aria-labelledby="story-title">
+        <div class="section-heading"><p class="eyebrow">01 / Una lectura guiada</p><h2 id="story-title">Primero, la escala de lo que contamos</h2></div>
+        <p class="section-intro">Las capas no tienen la misma unidad ni cobertura. Explora los registros por separado y vuelve a la pregunta que los organiza: ¿qué patrones descriptivos aparecen en los datos disponibles?</p>
+        <div id="story-content" class="story-grid" aria-live="polite"><p class="loading">Cargando datos locales…</p></div>
+      </section>
+
+      <section id="explore-view" class="view-panel hidden" aria-labelledby="explore-title">
+        <div class="section-heading"><p class="eyebrow">02 / Explora los registros</p><h2 id="explore-title">Una misma selección, varias lecturas</h2></div>
+        <p class="section-intro">Cambia el periodo o la geografía y observa cómo se actualizan conjuntamente las vistas. El conteo conserva la unidad de la fuente seleccionada.</p>
+        <form id="filters" class="filters" aria-label="Filtros compartidos">
+          <label>Fuente<select id="dataset"><option value="incidents">Siniestros registrados</option><option value="mortality">Registros de mortalidad</option></select></label>
+          <label>Año<select id="year"><option value="">Todos</option></select></label>
+          <label>Comuna<select id="community"><option value="">Todas</option></select></label>
+          <label>Clase<select id="category"><option value="">Todas</option></select></label>
+          <label>Gravedad<select id="severity"><option value="">Todas</option></select></label>
+          <button class="reset" type="button" id="reset">Restablecer</button>
+        </form>
+        <p id="active-state" class="active-state" aria-live="polite"></p>
+        <div id="explore-content" class="explore-grid" aria-live="polite"><p class="loading">Cargando…</p></div>
+      </section>
+
+      <section id="metodo" class="method-section">
+        <div class="section-heading"><p class="eyebrow">03 / Cómo leerlo</p><h2>Lo que estos datos permiten decir</h2></div>
+        <div class="method-columns">
+          <article><h3>Registros no son riesgo</h3><p>Los mapas muestran concentración de registros administrativos. Para comparar riesgo se necesitarían denominadores de exposición —viajes, distancia recorrida o flujo vial— con cobertura compatible.</p></article>
+          <article><h3>Unidades distintas, vistas separadas</h3><p>La capa de siniestralidad describe registros con heridos o solo daños. La capa de mortalidad tiene otro periodo y consolidación. No se suman ni se enlazan entre sí.</p></article>
+          <article><h3>Privacidad por diseño</h3><p>Las extracciones excluyen radicados, identificadores personales, direcciones y atributos demográficos sensibles. El mapa agrupa coordenadas y oculta celdas con menos de cinco registros.</p></article>
+        </div>
+        <div class="source-line"><span>Fuentes</span><a href="https://www.medellin.gov.co/es/secretaria-de-movilidad/observatorio-de-movilidad/" target="_blank" rel="noreferrer">Observatorio de Movilidad de Medellín</a><a href="https://www.medellin.gov.co/servidormapas/rest/services/transporte/VM_Accidentes/MapServer/0" target="_blank" rel="noreferrer">Capa de siniestralidad</a><a href="https://www.medellin.gov.co/servidormapas/rest/services/transporte/VM_Mortalidad/MapServer/0" target="_blank" rel="noreferrer">Capa de mortalidad</a></div>
+      </section>
+    </main>
+    <footer><span>Medellín en movimiento</span><span>Una visualización descriptiva, con sus límites a la vista.</span></footer>
+    <div id="viz-tooltip" class="viz-tooltip" role="tooltip" aria-hidden="true">
+      <strong data-tooltip-title></strong>
+      <span><b data-tooltip-value></b><small data-tooltip-unit></small></span>
+      <small class="tooltip-context" data-tooltip-context></small>
+    </div>
+    <script src="/app.js?v=5"></script>
+  </body>
+</html>

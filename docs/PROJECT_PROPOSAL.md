@@ -86,3 +86,17 @@ Incluye análisis descriptivo de los datos disponibles, visualizaciones coordina
 - Se muestran cobertura, actualización y limitaciones.
 - No se confunden incidentes con víctimas.
 - Story mode solo presenta afirmaciones reproducibles.
+
+## Alcance ajustado tras adquisición y revisión de privacidad
+
+La primera versión explora únicamente la capa de siniestralidad de eventos (registros con HERIDOS o DAÑOS) y, en una vista separada, los registros de la capa de mortalidad. No carga filas individuales de víctimas ni personas aforadas en bicicleta: sus diccionarios identifican campos y combinaciones con dirección, identificador, estación, hora o atributos demográficos. Estos dos temas quedan como futuras fuentes agregadas solo si el organismo ofrece una salida segura compatible.
+
+### Tareas analíticas aprobadas para esta versión
+
+1. **Ubicar** grupos de registros de siniestralidad en una vista municipal agregada por redondeo de 0,01° (umbral de cinco registros); no denominarlo hexbin, densidad poblacional ni riesgo.
+2. **Comparar** conteos de registros entre comunas y categorías publicadas con barras horizontales.
+3. **Resumir** el ciclo descriptivo por día de semana y hora, filtrando esa combinación de forma coordinada.
+4. **Observar** conteos mensuales/año dentro de la cobertura registrada, conservando huecos temporales y sin explicar causas.
+5. **Separar** la lectura de siniestralidad y mortalidad; no sumar, enlazar ni equiparar sus filas.
+
+La interpretación temporal se limita a conteos observados. Aún no hay denominadores de exposición ni garantía de completitud homogénea. El método y resultados específicos se documentan en `docs/FINAL_REPORT.md`.

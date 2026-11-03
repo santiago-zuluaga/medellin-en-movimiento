@@ -1,0 +1,215 @@
+{
+  "started_utc": "2026-11-03T03:40:55.797101+00:00",
+  "tool": "scripts/acquire.py",
+  "sources": [
+    {
+      "name": "municipality_boundary",
+      "source_url": "https://www.medellin.gov.co/servidormapas/rest/services/mapas_nacionales/VC_Limite_Politico_Admtivo/MapServer/2",
+      "final_url": "https://www.medellin.gov.co/servidormapas/rest/services/mapas_nacionales/VC_Limite_Politico_Admtivo/MapServer/2",
+      "status": "PASS",
+      "reused_existing_raw": true,
+      "http_status": 200,
+      "metadata_response": {
+        "url": "https://www.medellin.gov.co/servidormapas/rest/services/mapas_nacionales/VC_Limite_Politico_Admtivo/MapServer/2?f=json",
+        "content_type": "application/json; charset=UTF-8",
+        "http_status": 200,
+        "bytes": 5075
+      },
+      "metadata": {
+        "name": "Limite del Municipio de Medellin",
+        "description": "Capa Limite del Municipio de Medellín 2014",
+        "fields": [],
+        "object_id_field": "objectid",
+        "max_record_count": 2000,
+        "source_crs": {
+          "wkid": 9377,
+          "latestWkid": 9377,
+          "xyTolerance": 0.001,
+          "zTolerance": 0.001,
+          "mTolerance": 0.001,
+          "falseX": -618700,
+          "falseY": -8436100,
+          "xyUnits": 10000,
+          "falseZ": -100000,
+          "zUnits": 10000,
+          "falseM": -100000,
+          "mUnits": 10000
+        },
+        "requested_output_crs": "EPSG:4326"
+      },
+      "object_ids_requested": 1,
+      "features_downloaded": 1,
+      "batches": 0,
+      "path": "data\\raw\\limite_municipal.geojson",
+      "content_type": "application/geo+json (previous immutable extract)",
+      "bytes": 782252,
+      "sha256": "ad0769a044d5cca1b4f0195394b8b90e7020359eee2af3eb27f7e445a4096a36",
+      "completed_utc": "2026-11-03T03:21:45.950034+00:00",
+      "privacy_note": "Extracto de campos minimizado; se reutilizó raw local inmutable."
+    },
+    {
+      "name": "incidents",
+      "source_url": "https://www.medellin.gov.co/servidormapas/rest/services/transporte/VM_Accidentes/MapServer/0",
+      "final_url": "https://www.medellin.gov.co/servidormapas/rest/services/transporte/VM_Accidentes/MapServer/0",
+      "status": "PASS",
+      "reused_existing_raw": true,
+      "http_status": 200,
+      "metadata_response": {
+        "url": "https://www.medellin.gov.co/servidormapas/rest/services/transporte/VM_Accidentes/MapServer/0?f=json",
+        "content_type": "application/json; charset=UTF-8",
+        "http_status": 200,
+        "bytes": 5585
+      },
+      "metadata": {
+        "name": "Siniestralidad",
+        "description": "Base de datos geográfica de siniestralidad (heridos y solo daños) registrada en el Distrito de Medellín para los años 2019 a 2025, representada mediante puntos. La información es actualizada de manera constante e incluye datos espaciales y atributos asociados a cada evento. Capa utilizada para análisis de seguridad vial y planificación.",
+        "fields": [
+          "fecha_siniestro",
+          "hora_siniestro",
+          "dia",
+          "mes",
+          "anio",
+          "clase_siniestro",
+          "gravedad_siniestro",
+          "barrio",
+          "num_comuna",
+          "nom_comuna",
+          "latitud",
+          "longitud"
+        ],
+        "object_id_field": "objectid",
+        "max_record_count": 2000,
+        "source_crs": {
+          "wkid": 9377,
+          "latestWkid": 9377,
+          "xyTolerance": 0.001,
+          "zTolerance": 0.001,
+          "mTolerance": 0.001,
+          "falseX": -618700,
+          "falseY": -8436100,
+          "xyUnits": 10000,
+          "falseZ": -100000,
+          "zUnits": 10000,
+          "falseM": -100000,
+          "mUnits": 10000
+        },
+        "requested_output_crs": "EPSG:4326"
+      },
+      "object_ids_requested": 235820,
+      "features_downloaded": 235820,
+      "batches": 0,
+      "path": "data\\raw\\siniestralidad_2019_2025.geojson",
+      "content_type": "application/geo+json (previous immutable extract)",
+      "bytes": 100548368,
+      "sha256": "ee18cde382f201a036ec668f7d92839f36d889685473aa7e81a8c194f6c42068",
+      "completed_utc": "2026-11-03T03:19:15.932814+00:00",
+      "privacy_note": "Extracto de campos minimizado; se reutilizó raw local inmutable."
+    },
+    {
+      "name": "fatalities",
+      "source_url": "https://www.medellin.gov.co/servidormapas/rest/services/transporte/VM_Mortalidad/MapServer/0",
+      "final_url": "https://www.medellin.gov.co/servidormapas/rest/services/transporte/VM_Mortalidad/MapServer/0",
+      "status": "PASS",
+      "reused_existing_raw": true,
+      "http_status": 200,
+      "metadata_response": {
+        "url": "https://www.medellin.gov.co/servidormapas/rest/services/transporte/VM_Mortalidad/MapServer/0?f=json",
+        "content_type": "application/json; charset=UTF-8",
+        "http_status": 200,
+        "bytes": 5437
+      },
+      "metadata": {
+        "name": "Mortalidad",
+        "description": "Base de datos geográfica de mortalidad registrada en el Distrito de Medellín para los años 2019 a 2024, representada mediante geometría de puntos. La información se actualiza de manera continua e incluye datos espaciales y atributos asociados a cada evento, utilizada para el análisis de seguridad vial y la planificación. ",
+        "fields": [
+          "fecha_ocurrencia",
+          "hora_ocurrencia",
+          "clase",
+          "nom_comuna",
+          "latitud",
+          "longitud"
+        ],
+        "object_id_field": "objectid",
+        "max_record_count": 2000,
+        "source_crs": {
+          "wkid": 9377,
+          "latestWkid": 9377,
+          "xyTolerance": 0.001,
+          "zTolerance": 0.001,
+          "mTolerance": 0.001,
+          "falseX": -618700,
+          "falseY": -8436100,
+          "xyUnits": 10000,
+          "falseZ": -100000,
+          "zUnits": 10000,
+          "falseM": -100000,
+          "mUnits": 10000
+        },
+        "requested_output_crs": "EPSG:4326"
+      },
+      "object_ids_requested": 1541,
+      "features_downloaded": 1541,
+      "batches": 0,
+      "path": "data\\raw\\mortalidad_2019_2024.geojson",
+      "content_type": "application/geo+json (previous immutable extract)",
+      "bytes": 449580,
+      "sha256": "4b7c7319db29ecc8fc177c8fb3399c1bd582e78029fda99a62e86a6c0409468e",
+      "completed_utc": "2026-11-03T03:19:16.991606+00:00",
+      "privacy_note": "Extracto de campos minimizado; se reutilizó raw local inmutable."
+    },
+    {
+      "name": "victims_dictionary",
+      "source_url": "https://medata.app.medellin.gov.co/sites/default/files/distribution/1-023-25-000360/diccionario_mede_victimas_inci.json",
+      "final_url": "https://medata.app.medellin.gov.co/sites/default/files/distribution/1-023-25-000360/diccionario_mede_victimas_inci.json",
+      "content_type": "application/json",
+      "http_status": 200,
+      "bytes": 3744,
+      "sha256": "d8940ccc1982d401283e0c95830ac1e59e0de5958205f3b9e7c9c41e0768108d",
+      "path": "data\\metadata\\dictionaries\\victims.json",
+      "status": "PASS",
+      "field_count": 19,
+      "reused_existing_raw": true,
+      "completed_utc": "2026-11-03T03:40:55.330637+00:00"
+    },
+    {
+      "name": "bicycles_dictionary",
+      "source_url": "https://medata.app.medellin.gov.co/sites/default/files/distribution/1-023-25-000269/caracterizacion_uso_bicicleta.json",
+      "final_url": "https://medata.app.medellin.gov.co/sites/default/files/distribution/1-023-25-000269/caracterizacion_uso_bicicleta.json",
+      "content_type": "application/json",
+      "http_status": 200,
+      "bytes": 3613,
+      "sha256": "a81c5d649c9fa5952649302e8c9184eaa2677ab570d18a824d6ad3946aedf348",
+      "path": "data\\metadata\\dictionaries\\bicycles.json",
+      "status": "PASS",
+      "field_count": 22,
+      "reused_existing_raw": true,
+      "completed_utc": "2026-11-03T03:40:55.797101+00:00"
+    }
+  ],
+  "runs": [
+    {
+      "started_utc": "2026-11-03T03:29:05.642218+00:00",
+      "requested_only": "all",
+      "attempted_sources": [
+        "incidents",
+        "fatalities",
+        "municipality_boundary",
+        "victims_dictionary",
+        "bicycles_dictionary"
+      ]
+    },
+    {
+      "started_utc": "2026-11-03T03:40:55.797101+00:00",
+      "requested_only": "all",
+      "attempted_sources": [
+        "incidents",
+        "fatalities",
+        "municipality_boundary",
+        "victims_dictionary",
+        "bicycles_dictionary"
+      ]
+    }
+  ],
+  "safety": "MEData victim/bicycle person-level CSV files deliberately excluded; dictionaries only. ArcGIS extracts omit direct identifiers and addresses.",
+  "completed_utc": "2026-11-03T03:40:55.797101+00:00"
+}

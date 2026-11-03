@@ -53,3 +53,35 @@ Cada vista debe responder una pregunta concreta. La forma visual no se elige por
 
 ## Documentación por gráfico
 Registrar: pregunta, unidad de análisis, atributos, marca, canales, escalas, transformaciones, agregación, interacción, Gestalt, accesibilidad y limitaciones.
+
+## Fichas implementadas
+
+### Mapa municipal agregado
+- **Pregunta/tarea:** ¿dónde se agrupan los registros seleccionados? Localizar y filtrar.
+- **Unidad:** fila de la capa de siniestralidad o fila de la capa de mortalidad, nunca combinadas.
+- **Marcas/canales:** círculo por grupo de coordenadas redondeado a 0,01°; posición = longitud/latitud en EPSG:4326; área = conteo; color uniforme redundante como capa temática. Límite municipal oficial como región de contexto.
+- **Escala/agregación:** círculo con radio proporcional a raíz cuadrada del conteo (área proporcional); grupos con menos de cinco filas omitidos. No es una malla de área igual ni un hexbin; longitud y latitud no representan la misma distancia.
+- **Interacción:** seleccionar celda filtra las otras vistas; el estado aparece arriba y Restablecer lo limpia.
+- **Gestalt/accesibilidad:** región común del límite, figura-fondo neutro, foco visible, etiqueta accesible, activación por Enter/Espacio; el círculo no depende solo del color.
+- **Límite:** concentración de registros no equivale a riesgo; no se dibujan puntos exactos, direcciones o identificadores. Outliers no se eliminan.
+- **Alternativa descartada:** puntos individuales y coropleta de conteos sin exposición.
+
+### Serie temporal mensual
+- **Pregunta/tarea:** ¿cómo varía el conteo mensual de filas? Tendencia descriptiva.
+- **Marcas/canales:** segmentos y puntos; eje horizontal = mes ordenado; vertical = conteo.
+- **Agregación:** número de filas de la fuente; meses sin filas de los filtros aparecen como cero solo dentro de meses con cobertura observada. Huecos de cobertura cortan la línea.
+- **Interacción:** punto filtra año en el resto de vistas.
+- **Límite:** no normaliza por exposición, ni iguala completitud/revisión de captura entre años.
+
+### Barras de comuna y categorías
+- **Pregunta/tarea:** comparar magnitudes entre categorías geográficas/nominales.
+- **Marcas/canales:** barras horizontales, longitud = número de filas; etiquetas textuales conservan identidad si se imprime en blanco y negro.
+- **Interacción:** seleccionar barra aplica filtro coordinado.
+- **Límite:** conteos brutos describen registros, no riesgo o desempeño relativo.
+- **Alternativa descartada:** mapa de área coloreado por conteo como comparación principal.
+
+### Heatmap de día × hora
+- **Pregunta/tarea:** reconocer ciclos por día de semana y hora; seleccionar un intervalo.
+- **Marcas/canales:** rectángulos; X = hora 0–23, Y = lunes–domingo, intensidad de color = filas; título emergente y nombre accesible repiten el conteo.
+- **Interacción:** seleccionar una celda filtra por día y hora a todas las vistas.
+- **Límite:** una celda vacía expresa cero filas en la selección; no demuestra ausencia de siniestros reales.

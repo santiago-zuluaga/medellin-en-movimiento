@@ -1,0 +1,187 @@
+{
+  "created_utc": "2026-11-03T03:41:05.855860+00:00",
+  "datasets": [
+    {
+      "name": "siniestralidad",
+      "unit": "evento registrado",
+      "row_count": 235820,
+      "sha256_raw": "ee18cde382f201a036ec668f7d92839f36d889685473aa7e81a8c194f6c42068",
+      "fields": {
+        "objectid": {
+          "observed_types": [
+            "int"
+          ],
+          "nulls": 0,
+          "non_null": 235820,
+          "null_percent": 0.0
+        },
+        "fecha_siniestro": {
+          "observed_types": [
+            "str"
+          ],
+          "nulls": 0,
+          "non_null": 235820,
+          "null_percent": 0.0
+        },
+        "hora_siniestro": {
+          "observed_types": [
+            "str"
+          ],
+          "nulls": 0,
+          "non_null": 235820,
+          "null_percent": 0.0
+        },
+        "dia": {
+          "observed_types": [
+            "str"
+          ],
+          "nulls": 0,
+          "non_null": 235820,
+          "null_percent": 0.0
+        },
+        "mes": {
+          "observed_types": [
+            "str"
+          ],
+          "nulls": 0,
+          "non_null": 235820,
+          "null_percent": 0.0
+        },
+        "anio": {
+          "observed_types": [
+            "int"
+          ],
+          "nulls": 0,
+          "non_null": 235820,
+          "null_percent": 0.0
+        },
+        "clase_siniestro": {
+          "observed_types": [
+            "str"
+          ],
+          "nulls": 0,
+          "non_null": 235820,
+          "null_percent": 0.0
+        },
+        "gravedad_siniestro": {
+          "observed_types": [
+            "str"
+          ],
+          "nulls": 0,
+          "non_null": 235820,
+          "null_percent": 0.0
+        },
+        "barrio": {
+          "observed_types": [
+            "str"
+          ],
+          "nulls": 236,
+          "non_null": 235584,
+          "null_percent": 0.1001
+        },
+        "num_comuna": {
+          "observed_types": [
+            "str"
+          ],
+          "nulls": 257,
+          "non_null": 235563,
+          "null_percent": 0.109
+        },
+        "nom_comuna": {
+          "observed_types": [
+            "str"
+          ],
+          "nulls": 0,
+          "non_null": 235820,
+          "null_percent": 0.0
+        },
+        "latitud": {
+          "observed_types": [
+            "float"
+          ],
+          "nulls": 0,
+          "non_null": 235820,
+          "null_percent": 0.0
+        },
+        "longitud": {
+          "observed_types": [
+            "float"
+          ],
+          "nulls": 0,
+          "non_null": 235820,
+          "null_percent": 0.0
+        }
+      }
+    },
+    {
+      "name": "mortalidad",
+      "unit": "registro de capa; equivalencia de unidad pendiente",
+      "row_count": 1541,
+      "sha256_raw": "4b7c7319db29ecc8fc177c8fb3399c1bd582e78029fda99a62e86a6c0409468e",
+      "fields": {
+        "objectid": {
+          "observed_types": [
+            "int"
+          ],
+          "nulls": 0,
+          "non_null": 1541,
+          "null_percent": 0.0
+        },
+        "fecha_ocurrencia": {
+          "observed_types": [
+            "str"
+          ],
+          "nulls": 0,
+          "non_null": 1541,
+          "null_percent": 0.0
+        },
+        "hora_ocurrencia": {
+          "observed_types": [
+            "str"
+          ],
+          "nulls": 0,
+          "non_null": 1541,
+          "null_percent": 0.0
+        },
+        "clase": {
+          "observed_types": [
+            "str"
+          ],
+          "nulls": 0,
+          "non_null": 1541,
+          "null_percent": 0.0
+        },
+        "nom_comuna": {
+          "observed_types": [
+            "str"
+          ],
+          "nulls": 0,
+          "non_null": 1541,
+          "null_percent": 0.0
+        },
+        "latitud": {
+          "observed_types": [
+            "float"
+          ],
+          "nulls": 4,
+          "non_null": 1537,
+          "null_percent": 0.2596
+        },
+        "longitud": {
+          "observed_types": [
+            "float"
+          ],
+          "nulls": 4,
+          "non_null": 1537,
+          "null_percent": 0.2596
+        },
+        "shape": {
+          "observed_types": [],
+          "nulls": 4,
+          "non_null": 0,
+          "null_percent": 0.2596
+        }
+      }
+    }
+  ]
+}

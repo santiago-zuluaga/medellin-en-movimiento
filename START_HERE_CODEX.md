@@ -1,0 +1,3 @@
+# Prompt de inicio para Codex / ChatGPT Desktop
+
+Trabaja en este repositorio. Lee `AGENTS.md`, `docs/MASTER_AUTONOMOUS_EXECUTION.md` y las skills aplicables. Quiero que completes el proyecto universitario Medellín en movimiento de principio a fin: inspecciona el repositorio, adquiere y audita fuentes oficiales, realiza EDA, construye la aplicación Story + Explore, prueba, documenta y prepara la entrega. No te limites a un plan ni me preguntes si continúas entre fases. Solo pide intervención para credenciales, consentimiento, acciones irreversibles o bloqueos que no puedas resolver. No inventes datos/hallazgos. Registra todo en `docs/EXECUTION_LOG.md`. Empieza por fase 0 y sigue Definition of Done.

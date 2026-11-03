@@ -51,3 +51,19 @@ Para cada fichero:
 - Calidad espacial y temporal cuantificada.
 - Solapamientos y cambios metodológicos documentados.
 - Preguntas analíticas compatibles con los atributos.
+
+## Ejecución empírica inicial — 2026-11-02
+
+La ejecución actual descargó extractos minimizados y diccionarios con hashes en `reports/acquisition_manifest.json`. La adquisición de siniestralidad y mortalidad comprobó ObjectIDs solicitados/recibidos, consultó por páginas de 2.000 y solicitó EPSG:4326. Se añadieron el límite municipal oficial y los diccionarios MEData.
+
+| Fuente local | Filas adquiridas | Periodo parseable | Duplicados por atributos excluyendo ObjectID | Calidad espacial | Decisión |
+|---|---:|---|---:|---|---|
+| Siniestralidad | 235.820 | 2019-01 a 2025-12; 0 fechas no parseables | 175 | 0 coordenadas inválidas; 0 discrepancias atributo/geometría; 7 fuera de la envolvente y 237 fuera del polígono municipal | PASS con WARN; conservar todo y revisar los duplicados/outliers. |
+| Mortalidad | 1.541 | 2019-01 a 2024-12; 0 fechas no parseables | 33 | 4 geometrías/coordenadas faltantes; 0 discrepancias de coordenadas presentes; 4 puntos fuera del polígono municipal | WARN; unidad semántica por fila requiere confirmación; conservar registros. |
+| Límite municipal | 1 geometría | N/A | 0 | EPSG:4326 solicitado; se usó como referencia espacial | PASS para contexto/QA. |
+
+Los duplicados anteriores son firmas idénticas de atributos no técnicos, no registros que se hayan eliminado. ObjectID es único en ambos servicios, pero solo se considera clave técnica. La prueba punto-en-polígono usa el polígono oficial WGS84 y un índice de segmentos por latitud; se contrastó con el recorrido completo de vértices para 1.000 puntos de siniestralidad, con 0 discrepancias. No se removió ni transformó ningún punto.
+
+MEData entregó ambos diccionarios (19 campos de víctimas y 22 de bicicleta). Los CSV individuales se excluyeron: víctima contiene consecutivo RADICADO y dirección exacta; bicicleta contiene ID de persona aforada junto a estación, hora y atributos demográficos.
+
+El detalle de nulos, categorías, claves, hashes, límites y advertencias está en `reports/audit_report.md` y `.json`; agregados y conteos por año/mes están en `reports/eda_summary.md`, `reports/eda_*.svg` y `data/processed/eda_*.json`. Los estados WARN son abiertos y requieren resolución/documentación; no se deduplicaron filas automáticamente.

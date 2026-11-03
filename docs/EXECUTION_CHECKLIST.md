@@ -1,0 +1,38 @@
+# Checklist de ejecución
+
+- [x] Reconocimiento repo/baseline (Python 3.12 integrado; sin app previa)
+- [x] Log y decisiones
+- [x] Verificación de fuentes actuales
+- [x] Adquisición de dos capas, límite y diccionarios; CSV individual de víctimas/bicicleta excluidos por privacidad
+- [x] Diccionarios y manifest
+- [x] Auditoría estructural/temporal/espacial
+- [x] Diagnóstico de compatibilidad: no join entre fuentes
+- [x] EDA reproducible
+- [x] Story outline basado en conteos observados y cautelas
+- [x] Diseño editorial y Gestalt rationale
+- [x] Story mode
+- [x] Explore mode
+- [x] Cross-filtering/reset
+- [x] Mapa agrupado (sin puntos exactos)
+- [x] Gráficos temporales/categóricos
+- [x] Story: carga de datos reales confirmada manualmente por el equipo
+- [x] Corrección de formato de cifras/listas implementada y observada visualmente en Story/Explore; formato `es-CO`
+- [x] Story recorrido hasta metodología/fuentes y Explore renderizado en navegador de escritorio
+- [x] Filtro de año, selección coordinada por barra de comuna y restablecimiento comprobados manualmente
+- [x] Selección en mapa, serie mensual, heatmap y barras comprobada; filtros coordinados y reset
+- [x] Navegación Story ↔ Explore comprobada
+- [x] Consola/red revisadas; viewport móvil 375×812 sin overflow horizontal de página
+- [x] Navegación Story y Método inspeccionados; mediciones responsive previas en tablet 768×1024 y móvil 375×812 sin overflow horizontal de página
+- [ ] Estado de error visible y estado vacío real visibles en UI; el endpoint API vacío devolvió 0 filas, pero la captura UI del caso real no se completó
+- [x] Etiquetas accesibles/foco; activación con teclado probada en año y marcas de mapa, serie y heatmap
+- [ ] Auditoría con lector de pantalla/WCAG y contraste automatizado
+- [x] Repetición actual: tests de modelo (5), API (7 con loopback autorizado), sintaxis JS, py_compile y diff-check
+- [ ] Auditoría WCAG automatizada/lector de pantalla y rendimiento en equipos objetivo
+- [x] Informe académico
+- [x] README/fuentes/créditos/limitaciones
+- [x] Guion de demo
+- [x] Capturas reales de Story y Explore desktop persistidas en `reports/screenshots/`
+- [ ] Capturas verificables de Método, móvil, tooltip abierto y estado vacío de la UI; `tooltip-example.png` no muestra un tooltip visible al inspeccionarla
+- [x] Pulido motion, tooltips, retirada de nota del footer y reduced-motion comprobados
+
+- [ ] Definition of Done (faltan capturas Método/móvil/tooltip/vacío, error/vacío visible, recorrido repetido, responsive completo, táctil real, WCAG/lector/contraste y rendimiento acordado)
