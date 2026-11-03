@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Sirve la aplicación estática y agregaciones locales sin librerías externas."""
 from __future__ import annotations
-
+import os
 import json
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -71,9 +71,11 @@ class Handler(SimpleHTTPRequestHandler):
 
 
 def main():
-    print("Aplicación disponible en http://127.0.0.1:8000 (Ctrl+C para detener)")
-    ThreadingHTTPServer(("127.0.0.1", 8000), Handler).serve_forever()
+    host = os.environ.get("HOST", "0.0.0.0")
+    port = int(os.environ.get("PORT", "8000"))
 
+    print(f"Aplicación disponible en http://{host}:{port}")
+    ThreadingHTTPServer((host, port), Handler).serve_forever()
 
 if __name__ == "__main__":
     main()
