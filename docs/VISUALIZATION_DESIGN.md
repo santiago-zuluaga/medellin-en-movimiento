@@ -82,6 +82,6 @@ Registrar: pregunta, unidad de análisis, atributos, marca, canales, escalas, tr
 
 ### Heatmap de día × hora
 - **Pregunta/tarea:** reconocer ciclos por día de semana y hora; seleccionar un intervalo.
-- **Marcas/canales:** rectángulos; X = hora 0–23, Y = lunes–domingo, intensidad de color = filas; título emergente y nombre accesible repiten el conteo.
+- **Marcas/canales:** rectángulos; X = hora 0–23, Y = lunes–domingo, intensidad de color = filas. Una barra vertical contigua muestra el mínimo y el máximo de los 168 valores de la selección actual; su gradiente usa los mismos extremos de intensidad que las celdas. Etiquetas, tooltip y nombre accesible repiten el conteo.
 - **Interacción:** seleccionar una celda filtra por día y hora a todas las vistas.
 - **Límite:** una celda vacía expresa cero filas en la selección; no demuestra ausencia de siniestros reales.

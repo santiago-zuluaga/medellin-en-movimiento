@@ -18,6 +18,12 @@
 .chart-scroll:focus-visible{outline:3px solid #176f8a;outline-offset:3px}
 .time-chart{min-width:760px}
 .heatmap-svg{min-width:660px}
+.heatmap-layout{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:stretch;gap:.75rem}
+.heatmap-layout>.chart-scroll{min-width:0}
+.heatmap-scale{display:flex;min-width:4.6rem;flex-direction:column;align-items:center;justify-content:center;gap:.35rem;padding:.25rem 0;color:var(--muted);font-family:var(--mono);font-size:.62rem;line-height:1.25;text-align:center;font-variant-numeric:tabular-nums}
+.heatmap-scale-bound{white-space:nowrap}
+.heatmap-gradient{width:1rem;min-height:10rem;border:1px solid var(--line);background:linear-gradient(to top,rgba(185,73,47,var(--heatmap-min-alpha,.04)),rgba(185,73,47,var(--heatmap-max-alpha,.95)))}
+.heatmap-scale-unit{max-width:5rem;font-family:var(--sans);font-size:.58rem;line-height:1.2;overflow-wrap:anywhere}
 .chart-svg .time-point,.chart-svg .heat-cell,.chart-svg .map-cell{transition:fill .16s ease,stroke .16s ease,stroke-width .16s ease,opacity .16s ease}
 .chart-svg .time-point,.chart-svg .map-cell{transform-box:fill-box;transform-origin:center}
 .chart-svg .time-point:hover,.chart-svg .time-point:focus,.chart-svg .map-cell:hover,.chart-svg .map-cell:focus{stroke:#1c302b;stroke-width:2.5;opacity:1}

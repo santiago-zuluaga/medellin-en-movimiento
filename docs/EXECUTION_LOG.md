@@ -193,3 +193,24 @@ La nota de Story que antes impedía confirmar el render se considera superada po
 - Verificación repetida del recorrido Story → Explore → Método → Story → Explore en esta reanudación; estado vacío real y endpoint fueron comprobados anteriormente, pero no se logró capturarlos en UI ahora.
 - Matriz responsive completa 1440×900, 1280×720, 768×1024, 390×844 y 375×812, estado de error visible en UI, lector de pantalla/WCAG/contraste, dispositivo táctil físico y prueba de rendimiento con equipos/umbral acordados.
 - Por lo anterior, Definition of Done permanece OPEN. No se declaran como probados los criterios pendientes ni se atribuyen las capturas existentes a Método/móvil/tooltip/estado vacío.
+
+
+## Elaboración del informe académico - 2026-11-04
+
+- Se retomó la tarea de crear el informe académico original siguiendo What/Why/How. Se verificó el borrador existente, que resultó demasiado breve, y se amplió `docs/FINAL_REPORT.md` con problema y alcance, inventario/unidades de fuentes, calidad observada, tareas, justificación de las seis vistas, codificación e interacción, escenario de uso, resultados descriptivos, límites, reproducibilidad y referencias.
+- Se analizaron los cuatro PDF de referencia ya entregados. Se adaptó su estructura común (overview, datasets, tareas, vistas/marcas/canales, interacciones, escenario y reflexión) sin trasladar datos, texto ni conclusiones de esos proyectos. La referencia a Munzner incluye su obra de 2014 y página oficial.
+- Se incorporaron al documento recortes de las capturas existentes de Story y Explore, generados desde `reports/screenshots/story-desktop.png` y `explore-desktop.png`. Los originales no se modificaron. No se crearon capturas nuevas de la aplicación ni se atribuye evidencia a pantallas no verificadas.
+- Se generó `reports/medellin_en_movimiento_informe_academico.pdf` con ReportLab y fuente Arial embebida. El primer render detectó mojibake en el borrador; se reparó la codificación UTF-8 del Markdown y se volvió a renderizar. La inspección visual final cubrió las nueve páginas y mostró acentos legibles, tablas ajustadas, dos imágenes reales, encabezados/pies y paginación.
+- Verificación de artefacto: `pypdf` abrió el PDF (9 páginas; 2 imágenes); Poppler renderizó cada página a PNG para inspección. El texto extraído contiene las secciones What, Why, How, referencias y apéndice. No se ejecutaron pruebas de aplicación en esta tarea. El PDF informa explícitamente que el QA de producto conserva criterios abiertos y que su Definition of Done sigue OPEN.
+- Se actualizaron los enlaces de documentación en `README.md`. No se volvió a adquirir ni procesar datos, ni se escribieron archivos en `data/raw/`. No se recalcularon hashes en esta tarea; los últimos hashes comprobados siguen registrados en las entradas QA previas.
+- Pendiente editorial: completar nombres del equipo, curso/docente/sección y contribuciones/horas; confirmar licencias y unidad semántica de la capa de mortalidad con los publicadores antes de redistribución o de formular inferencias adicionales.
+
+## Escala dinámica del heatmap — 2026-11-05
+
+- Se agregó una barra vertical junto al heatmap de día/hora. Presenta mínimo y máximo `es-CO` del conjunto de 168 celdas para la fuente/filtros actuales, con el gradiente ajustado a esos mismos extremos. Incluye nombre accesible con mínimo/máximo y `aria-live="polite"`; actualiza al volver a renderizar las selecciones.
+- Se actualizó `docs/VISUALIZATION_DESIGN.md`, `docs/TESTING.md` y la descripción de Explore en `README.md`.
+- `node --check web/app.js`: PASS. `scripts/test_data_model.py`: PASS, 5/5. Un smoke check temporal con agregados del GeoJSON local llamó la función de render y verificó etiquetas, accesibilidad y actualización: selección completa mínimo 111/máximo 2.561; año 2019 mínimo 8/máximo 629. No se añadieron datos ficticios ni tests persistentes.
+- Una primera invocación de la suite como `python -m unittest scripts.test_data_model` falló al importar `data_model` por ruta de módulo; se repitió con la instrucción documentada `python scripts/test_data_model.py` y pasó 5/5. No es un fallo del modelo.
+- En la segunda aserción del smoke check temporal se esperaba inicialmente la etiqueta inglesa `minimum`; se corrigió la propia aserción a la etiqueta española `mínimo`, tras lo cual el chequeo completo pasó. No fue un defecto de la visualización.
+- `git diff --check`: PASS. No se cambiaron API, agregaciones, análisis ni datos raw. La interfaz real en navegador quedó NOT TESTED en esta sesión: CUA no pudo inicializar sus assets del kernel y el acceso HTTP local recibió denegación de socket. No se afirma una verificación visual de navegador.
+- El usuario pidió publicar los cambios en el remoto. El remoto `origin` está configurado en GitHub; aún no se había creado commit ni enviado un push al escribir esta entrada.

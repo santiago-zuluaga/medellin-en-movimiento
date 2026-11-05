@@ -78,16 +78,21 @@ function timeChart(data, unit) {
 
 function weekdayHeatmap(data, unit) {
   const counts = new Map(data.weekday_hours.map((d) => [`${d.weekday}-${d.hour}`, d.count]));
-  const max = Math.max(...counts.values(), 1), days = ['lun', 'mar', 'mié', 'jue', 'vie', 'sáb', 'dom'];
+  const values = Array.from({ length: 7 }, (_, weekday) => Array.from({ length: 24 }, (_, hour) => counts.get(`${weekday}-${hour}`) || 0)).flat();
+  const min = Math.min(...values), max = Math.max(...values), scaleMax = max || 1;
+  const minAlpha = min ? .15 + .8 * min / scaleMax : .04;
+  const maxAlpha = max ? .95 : .04;
+  const days = ['lun', 'mar', 'mié', 'jue', 'vie', 'sáb', 'dom'];
   const x0 = 58, y0 = 20, cellW = 24, cellH = 27;
   const fullDays = ['lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado', 'domingo'];
   const cells = days.map((day, d) => `<text x="${x0 - 8}" y="${y0 + d * cellH + 16}" text-anchor="end">${day}</text>${Array.from({ length: 24 }, (_, hour) => {
-    const count = counts.get(`${d}-${hour}`) || 0, alpha = count ? .15 + .8 * count / max : .04;
+    const count = counts.get(`${d}-${hour}`) || 0, alpha = count ? .15 + .8 * count / scaleMax : .04;
     const selected = filters.weekday === String(d) && filters.hour === String(hour);
     return `<rect class="cell heat-cell${selected ? ' is-selected' : ''}" x="${x0 + hour * cellW}" y="${y0 + d * cellH}" width="${cellW - 2}" height="${cellH - 2}" rx="2" fill="rgba(185,73,47,${alpha})" tabindex="0" role="button" aria-pressed="${selected}" aria-label="Filtrar ${fullDays[d]}, ${hour}:00; ${fmt.format(count)} ${esc(unit)}" data-filter="weekday_hour" data-value="${d}-${hour}" data-viz-title="${fullDays[d]}, ${String(hour).padStart(2, '0')}:00" data-viz-value="${fmt.format(count)}" data-viz-unit="${esc(unit)}" aria-describedby="viz-tooltip"></rect>`;
   }).join('')}`).join('');
   const hourLabels = Array.from({ length: 24 }, (_, h) => h % 3 === 0 ? `<text x="${x0 + h * cellW + 10}" y="${y0 + 7 * cellH + 15}" text-anchor="middle">${h}</text>` : '').join('');
-  return `<div class="chart-scroll heatmap-scroll" tabindex="0" role="region" aria-label="Heatmap desplazable por día y hora"><svg class="chart-svg heatmap-svg" viewBox="0 0 660 250" role="group" aria-label="Heatmap de registros por día de semana y hora"><title>Día de semana por hora</title>${cells}${hourLabels}</svg></div><p class="chart-legend">Escala de color: 0 registros (sin relleno) a ${fmt.format(max)} registros (tono más intenso).</p><p class="caption">Color más intenso indica mayor conteo en esta selección; las horas sin registro se conservan como celdas vacías. Usa Tab y Enter para filtrar por día y hora.</p>`;
+  const scaleLabel = `Escala de color: mínimo ${fmt.format(min)} ${unit}; máximo ${fmt.format(max)} ${unit}`;
+  return `<div class="heatmap-layout" style="--heatmap-min-alpha:${minAlpha.toFixed(3)};--heatmap-max-alpha:${maxAlpha.toFixed(3)}"><div class="chart-scroll heatmap-scroll" tabindex="0" role="region" aria-label="Heatmap desplazable por día y hora"><svg class="chart-svg heatmap-svg" viewBox="0 0 660 250" role="group" aria-label="Heatmap de registros por día de semana y hora"><title>Día de semana por hora</title>${cells}${hourLabels}</svg></div><div class="heatmap-scale" role="group" aria-label="${esc(scaleLabel)}" aria-live="polite" aria-atomic="true"><span class="heatmap-scale-bound">Máx. ${fmt.format(max)}</span><span class="heatmap-gradient" aria-hidden="true"></span><span class="heatmap-scale-bound">Mín. ${fmt.format(min)}</span><span class="heatmap-scale-unit">${esc(unit)}</span></div></div><p class="caption">El tono más intenso representa el máximo de esta selección; el más claro representa el mínimo. Los valores y la escala cambian al modificar fuente o filtros. Las horas sin registros en la selección se muestran como celdas vacías. Usa Tab y Enter para filtrar por día y hora.</p>`;
 }
 
 function flattenRings(coords, result = []) {

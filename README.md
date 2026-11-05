@@ -40,7 +40,7 @@ Las pruebas de API usan archivos locales reales si existen. Las pruebas pequeña
 ## Modos
 
 - **Story:** narrativa y conteos reproducibles a partir de la instantánea descargada.
-- **Explore:** filtros globales coordinan mapa agregado, comuna, clase, gravedad, serie mensual y heatmap día-hora; Restablecer limpia el estado.
+- **Explore:** filtros globales coordinan mapa agregado, comuna, clase, gravedad, serie mensual y heatmap día-hora con escala de color dinámica mínimo/máximo; Restablecer limpia el estado.
 
 En móvil se apilan los paneles. Hay estados de carga/error/vacío, etiquetas y operación por teclado en selecciones SVG.
 
@@ -53,7 +53,7 @@ QA reanudado el 3 de noviembre de 2026: las capturas reales `reports/screenshots
 - `docs/MASTER_AUTONOMOUS_EXECUTION.md`: instrucciones rectoras.
 - `docs/DATA_SOURCES.md`, `DATA_DICTIONARIES.md`, `DATA_VALIDATION_PLAN.md`: fuentes, unidades, esquemas y auditoría.
 - `docs/VISUALIZATION_DESIGN.md`, `GESTALT_RATIONALE.md`: decisiones visuales y perceptuales.
-- `docs/FINAL_REPORT.md`, `TESTING.md`, `KNOWN_LIMITATIONS.md`: entrega académica, pruebas y cautelas.
+- `docs/FINAL_REPORT.md` y `reports/medellin_en_movimiento_informe_academico.pdf`: informe académico editable y versión de entrega; `TESTING.md` y `KNOWN_LIMITATIONS.md`: pruebas y cautelas.
 - `docs/EXECUTION_LOG.md`, `DECISIONS.md`: bitácora y decisiones.
 - `reports/acquisition_manifest.json`: fechas UTC, estado, URL, tamaños y SHA-256.
 - `reports/audit_report.md` / `.json`: perfilado empírico.

@@ -74,3 +74,11 @@ Capturas persistidas; prueba táctil real; lector de pantalla y auditoría WCAG 
 - **NOT TESTED actual:** matriz de los cinco tamaños solicitados completa; Explore móvil; error API y vacío visibles en UI; navegación completa repetida; lector de pantalla/WCAG/contraste; dispositivo táctil real; rendimiento/FPS en dispositivos objetivo.
 - Archivos de captura existentes: `story-desktop.png` (304.832 bytes), `explore-desktop.png` (503.430 bytes), `tooltip-example.png` (122.471 bytes). No se afirman capturas adicionales.
 - `data/raw/` no se adquirió ni escribió. Hashes cotejados con el manifiesto: siniestralidad `EE18CDE382F201A036EC668F7D92839F36D889685473AA7E81A8C194F6C42068`, mortalidad `4B7C7319DB29ECC8FC177C8FB3399C1BD582E78029FDA99A62E86A6C0409468E`, límite municipal `AD0769A044D5CCA1B4F0195394B8B90E7020359EEE2AF3EB27F7E445A4096A36`.
+
+## Escala dinámica del heatmap — 2026-11-05
+
+- **PASS actual:** `node --check web/app.js` y `scripts/test_data_model.py` (5/5).
+- **PASS actual:** un chequeo JavaScript temporal llamó la función de render con agregados de los datos locales reales. La escala reportó mínimo/máximo `111–2.561` para la fuente completa y `8–629` al filtrar 2019; verificó etiquetas visibles, nombre accesible y que el máximo cambiara con la selección. No se añadieron fixtures ni archivos de prueba persistentes.
+- **PASS actual:** `git diff --check` (sin errores de whitespace; puede advertir conversión LF/CRLF de Windows).
+- **NOT TESTED:** inspección de la interfaz en navegador, matriz móvil/tablet, lector de pantalla y actualización visual al manipular controles en pantalla. CUA no pudo inicializarse por error de ruta de assets del kernel; la consulta HTTP local falló por permiso de socket. El render de la función se comprobó en JavaScript, no como captura de navegador.
+- La API y el modelo no cambiaron, por lo que no se repitió la suite API. El smoke check invocó directamente la función del heatmap con agregados del modelo y no verifica peticiones de red.
