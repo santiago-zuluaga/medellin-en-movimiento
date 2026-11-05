@@ -214,3 +214,8 @@ La nota de Story que antes impedía confirmar el render se considera superada po
 - En la segunda aserción del smoke check temporal se esperaba inicialmente la etiqueta inglesa `minimum`; se corrigió la propia aserción a la etiqueta española `mínimo`, tras lo cual el chequeo completo pasó. No fue un defecto de la visualización.
 - `git diff --check`: PASS. No se cambiaron API, agregaciones, análisis ni datos raw. La interfaz real en navegador quedó NOT TESTED en esta sesión: CUA no pudo inicializar sus assets del kernel y el acceso HTTP local recibió denegación de socket. No se afirma una verificación visual de navegador.
 - El usuario pidió publicar los cambios en el remoto. El remoto `origin` está configurado en GitHub; aún no se había creado commit ni enviado un push al escribir esta entrada.
+
+### Publicación en remoto — 2026-11-05
+
+- Commit `fff4e16` (`Add academic report and dynamic heatmap scale`) publicado con `git push origin main`: PASS. El remoto avanzó de `12b2d02` a `fff4e16`.
+- Se incluyeron README, bitácora, informe académico editable/PDF, Testing, diseño de visualización y los cambios de `web/app.js`/`web/styles.css`. No se incluyó `data/raw/` ni archivos temporales.
